@@ -173,3 +173,43 @@ function sortByScore($first, $second)
 usort($users, 'sortByScore');
 
 var_dump($users);
+/*
+ * array(5) { [0]=> array(3) { ["username"]=> string(4) "zulu" ["age"]=> int(70) ["posts"]=> int(700) } [1]=> array(3) { ["username"]=> string(8) "aisleyne" ["age"]=> int(44) ["posts"]=> int(444) } [2]=> array(3) { ["username"]=> string(4) "adam" ["age"]=> int(20) ["posts"]=> int(300) } [3]=> array(3) { ["username"]=> string(6) "morgan" ["age"]=> int(120) ["posts"]=> int(3) } [4]=> array(3) { ["username"]=> string(4) "nick" ["age"]=> int(11) ["posts"]=> int(111) } }
+ */
+
+
+echo "<br><br>";
+//The Array Multisort is very flexiable
+
+$numbers = [50, 20, 13, 11, 1];
+
+array_multisort($numbers, SORT_DESC);
+
+var_dump($numbers);
+//array(5) { [0]=> int(50) [1]=> int(20) [2]=> int(13) [3]=> int(11) [4]=> int(1) }
+
+echo "<br><br>";
+
+$numbers = [50, 20, 13, 11, 1, '777mark'];
+
+array_multisort($numbers, SORT_DESC, SORT_NUMERIC);
+
+var_dump($numbers);
+//array(6) { [0]=> string(7) "777mark" [1]=> int(50) [2]=> int(20) [3]=> int(13) [4]=> int(11) [5]=> int(1) }
+
+echo "<br><br>";
+$files = ['img12.png', 'img10.png', 'img2.png', 'img1.png'];
+array_multisort($numbers, SORT_ASC, SORT_NATURAL);
+var_dump($files);
+
+//array(4) { [0]=> string(9) "img12.png" [1]=> string(9) "img10.png" [2]=> string(8) "img2.png" [3]=> string(8) "img1.png" }
+
+echo "<br><br>";
+
+//For this example our arrays must have the same amount of items to sort 2 things at the same time
+$names = ['adam','joe','juan','honda','balrog'];
+$numbers = [1,2,3,4,5];
+
+array_multisort($names, $numbers);
+var_dump($names);
+var_dump($numbers);
