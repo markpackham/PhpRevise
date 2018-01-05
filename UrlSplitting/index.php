@@ -20,6 +20,7 @@ echo '<pre>'.print_r($parsedUrl,true).'</pre>';
 )
  */
 
+echo "<br><br><br>";
 
 $path = explode('/',$parsedUrl['path']);
 
