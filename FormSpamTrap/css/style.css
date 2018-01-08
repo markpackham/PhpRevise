@@ -1,0 +1,17 @@
+/*Global */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.hidden{
+    /*Using both to reduce the risk of screen readers picking stuff up */
+    display: none;
+    visibility: hidden;
+}
