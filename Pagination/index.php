@@ -38,6 +38,7 @@ $pages = ceil($total / $perPage);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Articles</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <h1>Article Ids & Titles</h1>
@@ -53,9 +54,15 @@ foreach ($articles as $article):
 <?php endforeach; ?>
 <div class="pagination">
     <?php
-    for ($x = 1; $x <= $pages; $x++):
-        ?>
-        <a href="#"><?php echo $x; ?></a>
+    for ($x = 1; $x <= $pages; $x++):?>
+        <a href="?page=<?php echo $x; ?>
+        &per-page=<?php echo $perPage; ?>"
+            <?php if ($page === $x) {
+                //Add css class to embolden selected page
+                echo ' class="selected"';
+            }
+            ?>>
+            <?php echo $x; ?></a>
     <?php endfor; ?>
 </div>
 </body>
