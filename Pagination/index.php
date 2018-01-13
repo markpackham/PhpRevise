@@ -12,8 +12,9 @@ $perPage = isset($_GET['per-page']) && $_GET['per-page'] <= 50 ? (int)$_GET['per
 $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 
 //Query to nab results form database, start at 0 index and get a total of 5
+//SQL_CALC_FOUND_ROWS helps us find the total number of pages
 $articles = $db->prepare("
-SELECT id, title
+SELECT SQL_CALC_FOUND_ROWS id, title
 FROM articles
 LIMIT {$start},{$perPage}
 ");
@@ -22,7 +23,11 @@ $articles->execute();
 
 $articles = $articles->fetchAll(PDO::FETCH_ASSOC);
 
-//var_dump($articles);
+//Pages
+$total = $db->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
+//Ceil means ceiling, Round fractions up so we don't end up with 5.6 pages
+$pages = ceil($total / $perPage);
+
 
 ?>
 
@@ -46,5 +51,12 @@ foreach ($articles as $article):
         </p>
     </div>
 <?php endforeach; ?>
+<div class="pagination">
+    <?php
+    for ($x = 1; $x <= $pages; $x++):
+        ?>
+        <a href="#"><?php echo $x; ?></a>
+    <?php endfor; ?>
+</div>
 </body>
 </html>
