@@ -6,7 +6,7 @@ class Token
     {
         //Never generate tokens this way, way too old, predictable & unsafe md5(uniqid())
         //Generate a random token
-        $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(32));
+        return $_SESSION['token'] = base64_encode(openssl_random_pseudo_bytes(32));
     }
 
     public static function check($token)

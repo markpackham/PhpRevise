@@ -12,7 +12,7 @@ if (isset($_POST['product'], $_POST['quantity'], $_POST['token'])) {
         if (Token::check($_POST['token'])) {
             echo 'Token checks out, processing order';
         } else {
-            echo 'Token is not valid';
+            echo 'Token is not valid or data has not been submitted';
         }
     }
 }
@@ -38,7 +38,7 @@ if (isset($_POST['product'], $_POST['quantity'], $_POST['token'])) {
     <div class="product">
         <strong>A product</strong>
         <div class="field">
-            Quantity: <input type="text" name="quantity">
+            Quantity: <input type="text" name="quantity" required>
         </div>
         <input type="hidden" name="product" value="1">
         <!-- token protects us from request forgeries -->
@@ -52,9 +52,3 @@ if (isset($_POST['product'], $_POST['quantity'], $_POST['token'])) {
 
 </body>
 </html>
-
-<?php
-echo $_SESSION['token'];
-echo "<br>";
-echo Token::generate();
-?>
