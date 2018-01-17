@@ -7,8 +7,7 @@ setcookie('accept-cookies','true',time()+99999);
 }
 ?>
 
-<!-doctype html>
-<html>
+<!doctype html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"

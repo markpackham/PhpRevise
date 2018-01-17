@@ -31,7 +31,7 @@ $pages = ceil($total / $perPage);
 
 ?>
 
-<html>
+<!doctype html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"

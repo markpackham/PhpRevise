@@ -62,7 +62,7 @@ $quoteAuthor = $quote['author'];
 
 ?>
 
-<html>
+<!doctype html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
