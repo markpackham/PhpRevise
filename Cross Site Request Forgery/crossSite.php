@@ -3,13 +3,16 @@
 session_start();
 require_once 'classes/Token.php';
 
+//Check form submissions aren't empty in the required fields and that we have a token
 if (isset($_POST['product'], $_POST['quantity'], $_POST['token'])) {
     $product = $_POST['product'];
     $quantity = $_POST['quantity'];
 
     if (!empty($product) && !empty($quantity)) {
         if (Token::check($_POST['token'])) {
-            echo 'Process order';
+            echo 'Token checks out, processing order';
+        } else {
+            echo 'Token is not valid';
         }
     }
 }
@@ -37,13 +40,21 @@ if (isset($_POST['product'], $_POST['quantity'], $_POST['token'])) {
         <div class="field">
             Quantity: <input type="text" name="quantity">
         </div>
-        <input type="submit" value="Order">
         <input type="hidden" name="product" value="1">
         <!-- token protects us from request forgeries -->
-        <input type="hidden" name="token"
+        <p>Normally this token field would be hidden</p>
+        <input type="text" name="token"
                value="<?php echo Token::generate(); ?>">
+        <p>The token is auto generated above</p>
+        <input type="submit" value="Order">
     </div>
 </form>
 
 </body>
 </html>
+
+<?php
+echo $_SESSION['token'];
+echo "<br>";
+echo Token::generate();
+?>
