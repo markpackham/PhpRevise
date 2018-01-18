@@ -33,7 +33,7 @@ class DB
     {
         if ($this->_query = $this->_mysqli->query($sql)) {
             while ($row = $this->_query->fetch_object()) {
-                $this->results[] = $row;
+                $this->_results[] = $row;
             }
             $this->_count = $this->_query->num_rows;
         }
