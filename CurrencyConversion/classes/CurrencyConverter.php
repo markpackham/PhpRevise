@@ -10,21 +10,21 @@ class CurrencyConverter implements CurrencyConverterInterface
     protected $convertEndpoint = 'convert?q=%s&compact=y';
 
     protected $currenciesEndpoint = 'currencies';
+
     //We get currencies from here https://free.currencyconverterapi.com/api/v5/currencies
 
     public function convert(array $conversions)
     {
-        $query = '';
+        $currencies = [];
         $results = [];
 
-        //array_map — Applies the callback to the elements of the given arrays
-        //We need to use array_map since we aren't detailing with strings but the array $conversions
-        $query = implode(',', array_map(function ($c) {
+        $currencies = array_map(function ($c) {
+            //c[0] and c[1] are the first and second currencies
             return "{$c[0]}_{$c[1]}";
-        }, $conversions));
+        }, $conversions);
 
-        //var_dump($query);
-        //Outputs string(15) "USD_GBP,GBP_USD"
+        //remove duplicate currency conversion patters via array_unique so you're not saying eg "convert USD_GBP multiple times"
+        $query = implode(',',array_unique($currencies));
 
         //Build up URL
 
