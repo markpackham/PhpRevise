@@ -88,9 +88,24 @@ echo "</p>";
     $_POST
 */
 
-$usersName = $_POST['username'];
-$streetAddress = $_POST['streetaddress'];
-$cityAddress = $_POST['cityaddress'];
+
+if (empty($_POST['username'])) {
+    $usersName = 'No Username';
+} else {
+    $usersName = $_POST['username'];
+}
+
+if (empty($_POST['streetaddress'])) {
+    $streetAddress = 'No Street Address';
+} else {
+    $streetAddress = $_POST['streetaddress'];
+}
+
+if (empty($_POST['cityaddress'])) {
+    $cityAddress = 'No City Address';
+} else {
+    $cityAddress = $_POST['cityaddress'];
+}
 
 echo '<p>Your Information</p>';
 
