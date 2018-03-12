@@ -12,3 +12,9 @@ $output=array_diff($array1,$array2);
 print_r($output);
 //Shows the first result array's differences
 //Array ( [c] => 3 [d] => 4 )
+
+echo '<br />';
+//Outputs 4, size of and count are the same thing
+echo count($array1);
+echo '<br />';
+echo sizeof($array1);
