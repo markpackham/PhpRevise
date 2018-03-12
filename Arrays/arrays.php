@@ -18,3 +18,8 @@ echo '<br />';
 echo count($array1);
 echo '<br />';
 echo sizeof($array1);
+echo '<br />';
+//Show first which is 1
+echo current($array1) . "<br>";
+//Show last which is 4
+echo end($array1);
