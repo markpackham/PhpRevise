@@ -24,4 +24,15 @@ $goodString = filter_var($evilString, FILTER_SANITIZE_STRING);
 echo $goodString.'<br />';
 //Get rid of ascii characters greater than 127
 $removeØ = filter_var($evilString, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-echo $removeØ.'<br />';
+echo $removeØ.'<br /><br />';
+
+//FILTER_SANITIZE_NUMBER_INT whole numbers, + and - only
+$num="Before FILTER_SANITIZE_NUMBER_INT: 123++--332#()£$%&";
+echo $num.'<br />';
+$numFilter = filter_var($num, FILTER_SANITIZE_NUMBER_INT);
+echo $numFilter.'<br /><br />';
+
+//FILTER_SANITIZE_SPECIAL_CHARS, escape "<>& and characters with ASCII < 32
+echo $specChars="This is <strong>strong</strong>, this is <em>emphasized</em>";
+$specChars = filter_var($specChars,FILTER_SANITIZE_SPECIAL_CHARS);
+echo '<br />'.$specChars;
