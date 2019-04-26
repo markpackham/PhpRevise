@@ -5,7 +5,7 @@
 //Php 7 improved things greatly
 
 //This from Php 7 is far more secure, worth using for gambling
-echo random_int(1,10);
+echo random_int(1, 10);
 echo "<br>";
 
 //Random Bytes is great for salting
@@ -20,3 +20,12 @@ echo "<br>";
 
 //Still use password_hash for hashing passwords
 echo password_hash("weak password", PASSWORD_DEFAULT);
+
+echo rand(1, 2); // Prints either 1 or 2
+
+echo rand(5, 10); // Prints a number between 5 and 10 (inclusive!)
+
+echo rand(1, 100); // Prints a number between 1 and 100 (inclusive!)
+
+//To get the maximum random number use
+getrandmax();
