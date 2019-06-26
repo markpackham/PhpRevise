@@ -33,7 +33,7 @@ Array ( [0] => 60 [1] => 61 [2] => Array ( [0] => 62 [1] => 99999 ) )
 $lv5 = $lv4[2];
 //print_r($lv5);
 // Array ( [0] => 62 [1] => 99999 ) // found it, last number has to be 1
-echo "<br/>" . $multiDimensional[2][5][3][6][2][1] . "<br/>";
+$multiDimensional[2][5][3][6][2][1] . "<br/>";
 // 99999
 
 ///
@@ -66,3 +66,62 @@ $lv1 = $multiDimensional3[8];
 //print_r($lv1);
 // Array ( [0] => 441 [1] => 442 [2] => 443 [3] => Array ( [0] => 997 ) )
 echo $multiDimensional3[8][3][0] . "<br>";
+
+//
+//
+// array looping
+$arr = array(1, 2, 3, 4);
+foreach ($arr as $value) {
+    echo $value . "<br>";
+}
+echo "<br>";
+
+//
+//
+// arrays in arrays
+$arr = [1, [11], 2, [12], 3, [13]];
+foreach ($arr as $value) {
+    echo $value . "<br>"; // gives 1, Array, 2, Array, 3, Array
+}
+echo "<br>";
+//
+//
+// multi dimensional array looping (messy solution with warnings but at least stops Array being output)
+foreach ($arr as $value) {
+
+    if (is_int($value)) {
+        echo $value . "<br>";
+    }
+
+    foreach ($value as $valueLv2) {
+
+        if (is_int($valueLv2)) {
+            echo $valueLv2 . "<br>";
+        }
+
+    }
+}
+echo "<br>";
+echo "<br>";
+//
+//
+// regular for loop, still outputs arrays
+for ($i = 0; $i < sizeof($arr); $i++) {
+    echo $arr[$i] . "<br>";
+}
+echo "<br>";
+echo "<br>";
+//
+//
+// output values in arrays loops
+for ($i = 0; $i < sizeof($arr); $i++) {
+
+    if (is_int($arr[$i])) {
+        echo $arr[$i] . "<br>";
+    }
+
+    if (is_int($arr[$i][0])) {
+        echo $arr[$i][0] . "<br>";
+    }
+
+}
