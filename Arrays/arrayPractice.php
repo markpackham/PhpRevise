@@ -146,3 +146,30 @@ for ($row = 0; $row < sizeof($cars); $row++) {
     }
     echo "</ul>";
 }
+echo "<br>";
+echo "<br>";
+//
+//
+// need to debug this to find out why this is the only one that outputs [2, [22, [222]]],
+$arr = [
+    [1, [11, [111]]],
+    [2, [22, [222]]],
+    [3, [33, [333]]],
+    [4, [44, [444]]],
+];
+
+for ($row = 0; $row < 4; $row++) {
+    echo "<p><b>Row number $row</b></p>";
+    echo "<ul>";
+    for ($col = 0; $col < 4; $col++) {
+        echo "<li>" . $arr[$row][$col] . "</li>";
+        for ($col = 0; $col < 4; $col++) {
+            echo "<li>" . $arr[$row][$row][$col] . "</li>";
+            for ($col = 0; $col < 4; $col++) {
+                echo "<li>" . $arr[$row][$row][$row][$col] . "</li>";
+            }
+        }
+    }
+
+    echo "</ul>";
+}
