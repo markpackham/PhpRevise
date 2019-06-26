@@ -1,5 +1,9 @@
 <?php
 
+// find number
+$deepArray = [1, [2, [3, [4, [5, [6, [111]]]]]]];
+echo $deepArray[1][1][1][1][1][1][0] . "<br>"; // 111
+
 // Goal is to find "99999" burried in the array
 $multiDimensional = [1, 2, [3, 30, [-1, -2, 3], 31, 32, [40, 41, 42, [50, 51, 52, 53, 54, 55, [60, 61, [62, 99999]]]]], 4, 5, 6, 7, 8, 9, [10, 11, 12]];
 $lv1 = $multiDimensional[2];
@@ -29,7 +33,7 @@ Array ( [0] => 60 [1] => 61 [2] => Array ( [0] => 62 [1] => 99999 ) )
 $lv5 = $lv4[2];
 //print_r($lv5);
 // Array ( [0] => 62 [1] => 99999 ) // found it, last number has to be 1
-echo $multiDimensional[2][5][3][6][2][1] . "<br/>";
+echo "<br/>" . $multiDimensional[2][5][3][6][2][1] . "<br/>";
 // 99999
 
 ///
