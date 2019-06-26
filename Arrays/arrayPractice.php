@@ -125,3 +125,24 @@ for ($i = 0; $i < sizeof($arr); $i++) {
     }
 
 }
+echo "<br>";
+echo "<br>";
+//
+//
+// Far cleaner looping solution but all inner array values need same number
+$cars = [
+    ["Volvo", 22, 18],
+    ["BMW", 15, 13],
+    ["Saab", 5, 2],
+    ["Land Rover", 17, 15], // our loop wouldn't work if it was  ["Land Rover", 17, 15, 1, 2, 4, 5] since 1, 2, 4, 5 would be lost
+];
+
+for ($row = 0; $row < sizeof($cars); $row++) {
+    echo "<p><b>Row number $row</b></p>";
+    echo "<ul>";
+    // look at size of this inner array ["Volvo", 22, 18] which contains 3 items
+    for ($col = 0; $col < sizeof($cars[0]); $col++) {
+        echo "<li>" . $cars[$row][$col] . "</li>";
+    }
+    echo "</ul>";
+}
