@@ -1,0 +1,46 @@
+{
+  "movies": [
+    {
+      "title": "The Grudge",
+      "year": "2004",
+      "genre": "Horror",
+      "director": "Takashi Shimizu"
+    },
+    {
+      "title": "The Grudge 2",
+      "year": "2005",
+      "genre": "Horror",
+      "director": "Takashi Shimizu"
+    },
+    {
+      "title": "The Grudge 3",
+      "year": "2006",
+      "genre": "Horror",
+      "director": "Takashi Shimizu"
+    },
+    {
+      "title": "Rosechu",
+      "year": "2031",
+      "genre": "Romance",
+      "director": "CWC"
+    },
+    {
+      "title": "Captain Muggins",
+      "year": "1905",
+      "genre": "Comedy",
+      "director": "Bob Smith"
+    },
+    {
+      "title": "El Porko",
+      "year": "1921",
+      "genre": "Suspense",
+      "director": "Casparoth Delprinko"
+    },
+    {
+      "title": "Sonichu",
+      "year": "2030",
+      "genre": "Action",
+      "director": "CWC"
+    }
+  ]
+}
