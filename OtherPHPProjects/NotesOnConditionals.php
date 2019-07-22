@@ -1,6 +1,5 @@
 <?php
-/**
-Conditionals make it possible for programs to decide how to react to a wide variety of situations.
+/**Conditionals make it possible for programs to decide how to react to a wide variety of situations.
 if statements allow us to run a block of code if a condition is met.
 
 The boolean data type is either the value TRUE or FALSE and is the foundation of programmatic decision making.
